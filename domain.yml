@@ -1,0 +1,404 @@
+version: "3.1"
+
+intents:
+  # Intenciones generales
+  - saludo
+  - despedida
+  - afirmar
+  - negar
+  - agradecer
+
+  # Intenciones académicas - Información General
+  - consultar_carrera
+  - consultar_facultad
+  - consultar_contacto
+  - consultar_ubicacion
+  - consultar_historia_universidad
+  
+  # Intenciones académicas - Horarios y Calendarios
+  - consultar_horario_clase
+  - consultar_calendario_academico
+  - consultar_fechas_examen
+  - consultar_periodo_matricula
+  
+  # Intenciones académicas - Cursos y Docentes
+  - consultar_docente
+  - consultar_silabo_curso
+  - consultar_calificaciones
+  - consultar_asistencia
+  
+  # Intenciones académicas - Servicios Académicos
+  - consultar_biblioteca
+  - consultar_becas
+  - consultar_tramites
+  - solicitar_constancia_estudiante
+  - consultar_creditos
+  
+  # Intenciones académicas - Registro y Matrícula
+  - deseo_inscribirse
+  - proporcionar_nombre
+  - proporcionar_email
+  - proporcionar_telefono
+  - proporcionar_codigo_estudiante
+  - confirmar_datos
+  - consultar_metodos_pago
+  - confirmar_pago
+  
+  # Intenciones de soporte técnico
+  - error_general
+  - contacto_soporte
+  - solicitar_asesor_academico
+
+entities:
+  - nombre
+  - email
+  - telefono
+  - carrera
+  - codigo_estudiante
+  - metodo_pago
+
+slots:
+  nombre_usuario:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: registro_estudiante_form
+        requested_slot: nombre_usuario
+
+  email_usuario:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: registro_estudiante_form
+        requested_slot: email_usuario
+
+  telefono_usuario:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: registro_estudiante_form
+        requested_slot: telefono_usuario
+
+  codigo_estudiante:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: codigo_estudiante
+    - type: from_text
+      conditions:
+      - active_loop: registro_estudiante_form
+        requested_slot: codigo_estudiante
+
+  carrera_seleccionada:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: carrera
+
+  metodo_pago_seleccionado:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: metodo_pago
+
+  registro_completado:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: custom
+
+  pago_realizado:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: custom
+
+responses:
+  utter_saludo:
+  - text: "¡Hola! Bienvenido a UNASAM. Soy tu asistente virtual académico. ¿En qué puedo ayudarte hoy?"
+  - text: "¡Buen día! Soy el chatbot de la Universidad Santiago Antúnez de Mayolo. ¿Qué información necesitas?"
+  - text: "¡Hola! Estoy aquí para ayudarte con consultas académicas. ¿En qué te puedo servir?"
+
+  utter_despedida:
+  - text: "¡Gracias por usar nuestro servicio! ¡Hasta pronto!"
+  - text: "¡Que tengas un excelente día! Nos vemos en UNASAM."
+  - text: "¡Adiós! Si necesitas algo más, no dudes en escribir. ¡Mucho éxito en tus estudios!"
+
+  utter_agradecer:
+  - text: "¡De nada! ¿Hay algo más en lo que pueda ayudarte?"
+  - text: "¡Con gusto! ¿Necesitas información adicional?"
+
+  utter_consultar_historia_universidad:
+  - text: |
+      🏫 **UNASAM - Universidad Nacional Santiago Antúnez de Mayolo**
+      
+      📍 Ubicada en Huaraz, Ancash - Perú
+      
+      📜 Historia:
+      • Fundada en 1962 como institución de educación superior
+      • Acreditada como universidad nacional
+      • Más de 60 años de excelencia académica
+      • Comprometida con la formación integral de profesionales
+      
+      🎓 Carreras ofertadas:
+      • Ingeniería Civil
+      • Ingeniería de Sistemas
+      • Administración
+      • Contabilidad
+      • Educación
+      • Y más...
+      
+      ¿Te gustaría saber más sobre alguna carrera específica?
+
+  utter_consultar_ubicacion:
+  - text: |
+      📍 **Ubicación UNASAM**
+      
+      Universidad Nacional Santiago Antúnez de Mayolo
+      Huaraz, Ancash - Perú
+      
+      📞 Contacto Principal: +51 (043) 422-6147
+      📧 Email: info@unasam.edu.pe
+      🌐 Web: www.unasam.edu.pe
+      
+      Campus Principal:
+      Jr. Federico Sal y Rosas s/n - Huaraz
+      
+      ¿Necesitas información de alguna facultad o departamento específico?
+
+  utter_consultar_facultad:
+  - text: |
+      🏛️ **Facultades de UNASAM**
+      
+      📚 Facultades disponibles:
+      
+      • Facultad de Ingeniería
+      • Facultad de Administración
+      • Facultad de Educación
+      • Facultad de Ciencias Sociales
+      • Facultad de Ciencias Agrarias
+      • Facultad de Medicina
+      
+      ¿De cuál facultad necesitas información?
+
+  utter_consultar_carrera:
+  - text: |
+      🎓 **Carreras Profesionales - UNASAM**
+      
+      Algunas de nuestras principales carreras:
+      
+      💻 Ingeniería de Sistemas
+      🏗️ Ingeniería Civil
+      💼 Administración
+      📊 Contabilidad
+      📚 Educación
+      🌾 Ingeniería Agrónoma
+      🏥 Medicina
+      
+      Selecciona una carrera para más información o escribe su nombre.
+
+  utter_consultar_calendario_academico:
+  - text: |
+      📅 **Calendario Académico 2024**
+      
+      Semestre Académico 2024-I:
+      • Inicio: 15 de abril 2024
+      • Fin: 10 de agosto 2024
+      
+      Semestre Académico 2024-II:
+      • Inicio: 19 de agosto 2024
+      • Fin: 13 de diciembre 2024
+      
+      Fechas importantes:
+      • Matrícula: Primeras dos semanas del semestre
+      • Evaluaciones: Durante todo el semestre
+      • Exámenes Finales: Última semana del semestre
+      
+      ¿Necesitas información sobre fechas de exámenes?
+
+  utter_consultar_horario_clase:
+  - text: |
+      ⏰ **Horarios de Clases**
+      
+      Los horarios varían según:
+      • Carrera profesional
+      • Ciclo/Semestre
+      • Turno (Mañana/Tarde/Noche)
+      
+      Para consultar tu horario específico:
+      1. Ingresa tu código de estudiante
+      2. Accede al portal de estudiantes UNASAM
+      3. O contacta a la secretaría de tu facultad
+      
+      📞 Secretaría de Facultad: +51 (043) 422-6147
+      
+      ¿Necesitas contactar a alguna facultad específica?
+
+  utter_consultar_biblioteca:
+  - text: |
+      📖 **Sistema de Bibliotecas - UNASAM**
+      
+      🏢 Biblioteca Central:
+      • Ubicación: Campus Principal
+      • Horario: Lunes a Viernes 8:00 - 18:00
+      • Horario Sábados: 9:00 - 13:00
+      
+      📚 Servicios:
+      • Consulta de libros físicos
+      • Acceso a base de datos digital
+      • Préstamo a domicilio
+      • Salas de estudio
+      • Computadoras con internet
+      
+      📞 Contacto: +51 (043) 422-6147
+      📧 biblioteca@unasam.edu.pe
+      
+      ¿Necesitas reservar un libro o acceder a recursos digitales?
+
+  utter_consultar_becas:
+  - text: |
+      💰 **Sistema de Becas - UNASAM**
+      
+      Tipos de becas disponibles:
+      
+      🎓 Beca Académica
+      • Para estudiantes con alto desempeño
+      • Cobertura: 50-100% de aranceles
+      
+      📍 Beca por Localidad
+      • Para estudiantes de zonas alejadas
+      • Apoyo económico complementario
+      
+      🏆 Beca Deportiva
+      • Para atletas destacados
+      • Requisitos especiales
+      
+      🔬 Beca de Investigación
+      • Para proyectos de investigación
+      • Apoyo con recursos
+      
+      Requisitos generales:
+      • Estar matriculado
+      • Cédula de identidad vigente
+      • Comprobante de domicilio
+      
+      📧 Contacto: becas@unasam.edu.pe
+      ¿Quieres información detallada de alguna beca?
+
+  utter_consultar_tramites:
+  - text: |
+      📋 **Trámites Académicos - UNASAM**
+      
+      Trámites disponibles en línea:
+      
+      📄 Constancia de Estudiante
+      💳 Carné de Estudiante
+      📜 Certificado de Notas
+      🎓 Certificado de Egresado
+      📑 Autorización para Prácticas
+      ✍️ Cambio de Modalidad
+      🔄 Cambio de Carrera
+      
+      Requisitos básicos:
+      • Código de estudiante vigente
+      • Estar al día con cuotas
+      • Documentación actualizada
+      
+      📞 Secretaría General: +51 (043) 422-6147
+      📧 tramites@unasam.edu.pe
+      
+      ¿Cuál trámite necesitas realizar?
+
+  utter_consultar_creditos:
+  - text: |
+      📊 **Sistema de Créditos - UNASAM**
+      
+      📚 Modalidad de Créditos:
+      • 1 Crédito = 16 horas teóricas
+      • 1 Crédito = 32 horas prácticas
+      
+      📈 Carga Académica:
+      • Mínimo: 12 créditos por semestre
+      • Máximo: 25 créditos por semestre
+      • Promedio recomendado: 18 créditos
+      
+      ✅ Cumplimiento:
+      • Requiere 200 créditos totales para egresar
+      • Según cada carrera profesional
+      
+      🎯 Requisitos por créditos:
+      • Mínimo 60% en evaluación
+      • Asistencia ≥ 70%
+      
+      ¿Necesitas información sobre créditos específicos?
+
+  utter_solicitar_constancia_estudiante:
+  - text: |
+      📄 **Constancia de Estudiante**
+      
+      ✅ Trámite disponible en:
+      • Portal de estudiantes UNASAM
+      • Secretaría de tu facultad
+      • Ventanilla de trámites
+      
+      Requisitos:
+      • Código de estudiante
+      • DNI vigente
+      • Estar matriculado
+      • Estar al día en cuotas
+      
+      Tiempo de entrega:
+      • Constancia digital: Inmediata
+      • Constancia física: 1-2 días hábiles
+      
+      Costo: Consultar en secretaría
+      
+      ¿Deseas gestionar tu constancia ahora?
+
+  utter_contacto_soporte:
+  - text: |
+      📞 **Contacto - UNASAM**
+      
+      🏢 Línea General: +51 (043) 422-6147
+      
+      📧 Correos por departamento:
+      • Admisión: admision@unasam.edu.pe
+      • Registro: registro@unasam.edu.pe
+      • Biblioteca: biblioteca@unasam.edu.pe
+      • Becas: becas@unasam.edu.pe
+      • Trámites: tramites@unasam.edu.pe
+      
+      🕐 Horario de atención:
+      • Lunes a Viernes: 8:00 - 17:00
+      • Sábado: 9:00 - 13:00
+      
+      🌐 Portal: www.unasam.edu.pe
+      
+      ¿Necesitas comunicarte con algún departamento específico?
+
+  utter_error:
+  - text: "Disculpa, no entendí correctamente. ¿Podrías reformular tu pregunta?"
+  - text: "Lo siento, ocurrió un error. Por favor, intenta nuevamente."
+  - text: "No estoy seguro de lo que preguntaste. ¿Puedes detallar mejor tu consulta?"
+
+actions:
+  - action_listen
+  - action_registrar_estudiante
+  - validate_registro_estudiante_form
+
+forms:
+  registro_estudiante_form:
+    required_slots:
+      - nombre_usuario
+      - email_usuario
+      - telefono_usuario
+      - codigo_estudiante

@@ -1,0 +1,70 @@
+version: "3.1"
+
+rules:
+- rule: Saludo inicial
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+
+- rule: Despedida
+  steps:
+  - intent: despedida
+  - action: utter_despedida
+
+- rule: Agradecer
+  steps:
+  - intent: agradecer
+  - action: utter_agradecer
+
+- rule: Formulario de registro - activar
+  steps:
+  - intent: deseo_inscribirse
+  - action: registro_estudiante_form
+  - active_loop: registro_estudiante_form
+
+- rule: Formulario de registro - responder slot nombre
+  steps:
+  - active_loop: registro_estudiante_form
+  - intent: proporcionar_nombre
+  - action: registro_estudiante_form
+
+- rule: Formulario de registro - responder slot email
+  steps:
+  - active_loop: registro_estudiante_form
+  - intent: proporcionar_email
+  - action: registro_estudiante_form
+
+- rule: Formulario de registro - responder slot teléfono
+  steps:
+  - active_loop: registro_estudiante_form
+  - intent: proporcionar_telefono
+  - action: registro_estudiante_form
+
+- rule: Formulario de registro - responder código estudiante
+  steps:
+  - active_loop: registro_estudiante_form
+  - intent: proporcionar_codigo_estudiante
+  - action: registro_estudiante_form
+
+- rule: Formulario de registro - completado
+  steps:
+  - active_loop: registro_estudiante_form
+  - intent: afirmar
+  - action: action_registrar_estudiante
+  - action: utter_confirm_datos
+  - active_loop: null
+
+- rule: Contacto - soporte
+  steps:
+  - intent: contacto_soporte
+  - action: utter_contacto_soporte
+
+- rule: Consultas académicas variadas
+  steps:
+  - intent: consultar_horario_clase
+  - action: utter_consultar_horario_clase
+
+- rule: Consultar biblioteca
+  steps:
+  - intent: consultar_biblioteca
+  - action: utter_consultar_biblioteca

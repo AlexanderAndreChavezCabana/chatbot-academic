@@ -1,0 +1,60 @@
+# Requirements para Chatbot Académico RASA - UNASAM
+# Universidad Nacional Santiago Antúnez de Mayolo
+# Chatbot de Soporte Académico
+
+# RASA Framework (versión 3.x)
+rasa>=3.6.3
+
+# RASA SDK (para custom actions)
+rasa-sdk>=3.6.0
+
+# Machine Learning
+tensorflow>=2.12.0
+scikit-learn>=1.1.3
+
+# NLP
+spacy>=3.5.0
+
+# Web Framework para API
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# Database & ORM
+sqlalchemy>=2.0.0
+sqlite3  # Incluido en Python
+
+# Utilities
+pyyaml==6.0
+python-dateutil>=2.8.2
+coloredlogs>=15.0
+pytz>=2023.3
+
+# APIs y HTTP
+requests>=2.31.0
+aiohttp>=3.8.0
+
+# Datos y análisis
+pandas>=2.0.0
+openpyxl>=3.1.0
+
+# Email (opcional, para notificaciones)
+python-dotenv>=1.0.0
+smtplib  # Incluido en Python
+
+# Logging y monitoring
+loguru>=0.7.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+
+# Development
+black>=23.0.0
+flake8>=6.0.0
+
+# NOTA:
+# - Python 3.10+ recomendado
+# - Crear entorno virtual: python -m venv venv
+# - Windows: venv\Scripts\activate
+# - Linux/Mac: source venv/bin/activate
+# - Instalar: pip install -r requirements.txt

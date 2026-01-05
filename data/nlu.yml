@@ -1,0 +1,416 @@
+version: "3.1"
+
+nlu:
+- intent: saludo
+  examples: |
+    - hola
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+    - hey
+    - que tal
+    - saludos
+    - hola bot
+    - hola! como estas?
+    - buenas
+    - buen día
+    - qué hay
+    - holaaaa
+    - hi
+    - hello
+    - qué onda
+    - qué pasa
+    - muy buenas
+    - hola, ¿qué tal?
+    - qué hubo
+    - holi
+    - buenos
+
+- intent: despedida
+  examples: |
+    - adios
+    - chao
+    - hasta luego
+    - nos vemos
+    - bye
+    - salir
+    - terminar
+    - adiós
+    - chau
+    - hasta pronto
+    - me voy
+    - tengo que irme
+    - nos vemos luego
+    - hasta la próxima
+    - será hasta luego
+    - me retiro
+    - good bye
+    - see you
+    - ciao
+    - exit
+
+- intent: agradecer
+  examples: |
+    - gracias
+    - muchas gracias
+    - te agradezco
+    - gracias por la ayuda
+    - perfecto gracias
+    - ok gracias
+    - excelente gracias
+    - mil gracias
+    - super gracias
+    - gracias!
+    - muchas gracias por todo
+    - te lo agradezco mucho
+    - agradecido
+    - muy agradecido
+    - thanks
+    - thank you
+
+- intent: afirmar
+  examples: |
+    - si
+    - sí
+    - correcto
+    - exacto
+    - así es
+    - claro
+    - por supuesto
+    - ok
+    - está bien
+    - vale
+    - de acuerdo
+    - afirmativo
+    - confirmo
+    - confirmado
+    - si por favor
+    - sí, gracias
+    - efectivamente
+    - yes
+    - yeah
+    - yep
+    - seguro
+
+- intent: negar
+  examples: |
+    - no
+    - nop
+    - nope
+    - para nada
+    - negativo
+    - no gracias
+    - no, gracias
+    - no quiero
+    - no me interesa
+    - no por ahora
+    - tal vez después
+    - otro día
+    - ahora no
+    - no estoy seguro
+    - mejor no
+    - creo que no
+
+- intent: consultar_carrera
+  examples: |
+    - ¿qué carreras ofrecen?
+    - carreras disponibles
+    - que carreras tiene la universidad
+    - cuales son las carreras
+    - lista de carreras
+    - información de carreras
+    - me interesa conocer las carreras
+    - qué programas académicos
+    - carreras que ofrece UNASAM
+    - disciplinas disponibles
+    - estudios que puedo hacer
+
+- intent: consultar_facultad
+  examples: |
+    - facultades
+    - cuales son las facultades
+    - que facultades hay
+    - lista de facultades UNASAM
+    - información de facultades
+    - departamentos académicos
+    - facultades disponibles
+    - dónde me registro
+
+- intent: consultar_contacto
+  examples: |
+    - teléfono
+    - contacto
+    - cómo contacto
+    - número de teléfono
+    - correo electrónico
+    - email
+    - donde puedo llamar
+    - dirección de contacto
+    - telefonos UNASAM
+    - como me comunico
+
+- intent: consultar_ubicacion
+  examples: |
+    - ubicación
+    - dónde queda
+    - donde esta UNASAM
+    - localización
+    - direccion
+    - mapa
+    - como llego
+    - ubicación de UNASAM
+    - en que ciudad
+    - direccion de la universidad
+
+- intent: consultar_historia_universidad
+  examples: |
+    - historia de UNASAM
+    - cuando fue fundada
+    - quien la fundó
+    - antecedentes
+    - historia universitaria
+    - información sobre UNASAM
+    - cuantos años tiene
+    - que es UNASAM
+    - acerca de la universidad
+    - conocer mas de UNASAM
+
+- intent: consultar_horario_clase
+  examples: |
+    - horario
+    - cual es el horario
+    - a que hora es clase
+    - horario de clases
+    - mi horario
+    - cuando son las clases
+    - horarios disponibles
+    - que dias hay clase
+    - horario de atención
+    - que turno disponible
+
+- intent: consultar_calendario_academico
+  examples: |
+    - calendario académico
+    - fechas del semestre
+    - cuando empiezan las clases
+    - cuando terminan las clases
+    - calendario 2024
+    - fechas importantes
+    - cuando es matricula
+    - periodo academico
+    - inicio y fin de semestre
+
+- intent: consultar_fechas_examen
+  examples: |
+    - fechas de examen
+    - cuando son los exámenes
+    - exámenes finales
+    - calendario de evaluaciones
+    - cuando evalúan
+    - fechas de evaluación
+
+- intent: consultar_periodo_matricula
+  examples: |
+    - matricula
+    - cuando es la matricula
+    - periodo de matricula
+    - inscripción
+    - registro
+    - cuando me inscribo
+    - como matricularme
+
+- intent: consultar_docente
+  examples: |
+    - quien es el docente
+    - quien enseña
+    - docentes
+    - profesor
+    - profesores disponibles
+    - quien da clases
+    - información del docente
+    - datos del profesor
+
+- intent: consultar_silabo_curso
+  examples: |
+    - silabo
+    - contenido del curso
+    - que temas enseñan
+    - programa del curso
+    - currículum
+    - temario
+    - que aprenderé
+    - objetivos del curso
+
+- intent: consultar_calificaciones
+  examples: |
+    - notas
+    - calificaciones
+    - mis notas
+    - mis calificaciones
+    - como voy en las notas
+    - promedio
+    - resultados
+    - mis resultados
+
+- intent: consultar_asistencia
+  examples: |
+    - asistencia
+    - mi asistencia
+    - cuantas faltas tengo
+    - porcentaje de asistencia
+    - registro de asistencia
+    - inasistencias
+    - ausencias
+
+- intent: consultar_biblioteca
+  examples: |
+    - biblioteca
+    - libros
+    - donde puedo estudiar
+    - acceso a libros
+    - base de datos
+    - recursos de biblioteca
+    - salas de estudio
+    - horario biblioteca
+
+- intent: consultar_becas
+  examples: |
+    - becas
+    - ayuda económica
+    - apoyo financiero
+    - becas disponibles
+    - requisitos para beca
+    - como solicito beca
+    - tipos de becas
+    - beca académica
+
+- intent: consultar_tramites
+  examples: |
+    - tramites
+    - como hacer tramites
+    - tramite de constancia
+    - documento
+    - certificado
+    - como obtener constancia
+    - tramites academicos
+    - requisitos tramite
+
+- intent: solicitar_constancia_estudiante
+  examples: |
+    - constancia de estudiante
+    - necesito constancia
+    - como obtengo constancia
+    - tramite de constancia
+    - certificacion de estudiante
+    - comprobante de estudiante
+
+- intent: consultar_creditos
+  examples: |
+    - créditos
+    - cuantos creditos
+    - sistema de creditos
+    - creditos por carrera
+    - equivalencia de creditos
+    - como funciona creditos
+    - requisitos creditos
+
+- intent: deseo_inscribirse
+  examples: |
+    - quiero inscribirse
+    - deseo inscribir
+    - deseo registrarse
+    - quiero matricularme
+    - quiero inscribirme
+    - como me inscribo
+    - quiero estudiar
+    - deseo postular
+    - solicito admisión
+
+- intent: proporcionar_nombre
+  examples: |
+    - mi nombre es Juan
+    - me llamo María
+    - soy Pedro
+    - tu llamas Carlos
+    - identificate
+    - cual es tu nombre
+    - dime tu nombre
+
+- intent: proporcionar_email
+  examples: |
+    - mi email es usuario@gmail.com
+    - mi correo es estudiante@unasam.edu.pe
+    - puedes contactarme en correo@email.com
+    - mi email
+
+- intent: proporcionar_telefono
+  examples: |
+    - mi teléfono es 987654321
+    - mi celular es +51987654321
+    - puedes llamarme al 987654321
+    - mi número es 943210987
+    - contacto al telefono
+
+- intent: proporcionar_codigo_estudiante
+  examples: |
+    - mi código es 2024001
+    - codigo estudiante 2023045
+    - soy estudiante 2024010
+    - mi matrícula es 2023089
+    - codigo
+
+- intent: confirmar_datos
+  examples: |
+    - si, esos son mis datos
+    - correcto, confirmo
+    - si, es correcto
+    - confirmo los datos
+    - estan correctos
+    - aprobado
+
+- intent: consultar_metodos_pago
+  examples: |
+    - metodos de pago
+    - como pago
+    - que formas de pago
+    - aceptan tarjeta
+    - transferencia bancaria
+    - formas de pago
+
+- intent: confirmar_pago
+  examples: |
+    - ya pagué
+    - pago realizado
+    - pago completado
+    - transferencia hecha
+    - pagado
+
+- intent: error_general
+  examples: |
+    - error
+    - no funciona
+    - no se entiende
+    - confundido
+    - no comprendo
+    - puedes repetir
+    - no entiendo
+
+- intent: contacto_soporte
+  examples: |
+    - necesito hablar con soporte
+    - contacto
+    - ayuda
+    - necesito ayuda
+    - quien me atiende
+    - servicio al cliente
+    - soporte técnico
+
+- intent: solicitar_asesor_academico
+  examples: |
+    - quiero hablar con un asesor
+    - necesito asesoramiento
+    - orientación académica
+    - quien es mi asesor
+    - consejeria
+    - orientador
+    - ayuda académica

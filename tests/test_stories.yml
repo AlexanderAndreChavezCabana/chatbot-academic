@@ -1,0 +1,20 @@
+# Testing stories for UNASAM Chatbot
+
+test_stories:
+- story: test_carrera_consulta
+  steps:
+  - user: |
+      qué carreras tienen
+    intent: consultar_carrera
+  - action: utter_consultar_carrera
+  - user: |
+      gracias
+    intent: agradecer
+  - action: utter_agradecer
+
+- story: test_ubicacion
+  steps:
+  - user: |
+      donde queda UNASAM
+    intent: consultar_ubicacion
+  - action: utter_consultar_ubicacion

@@ -1,0 +1,106 @@
+version: "3.1"
+
+stories:
+- story: saludo con consulta de carrera
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - intent: consultar_carrera
+  - action: utter_consultar_carrera
+
+- story: saludo con consulta de facultad
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - intent: consultar_facultad
+  - action: utter_consultar_facultad
+
+- story: saludo con consulta de información general
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - intent: consultar_historia_universidad
+  - action: utter_consultar_historia_universidad
+
+- story: consultar horario de clases
+  steps:
+  - intent: consultar_horario_clase
+  - action: utter_consultar_horario_clase
+
+- story: consultar calendario académico
+  steps:
+  - intent: consultar_calendario_academico
+  - action: utter_consultar_calendario_academico
+
+- story: consultar biblioteca
+  steps:
+  - intent: consultar_biblioteca
+  - action: utter_consultar_biblioteca
+
+- story: consultar becas
+  steps:
+  - intent: consultar_becas
+  - action: utter_consultar_becas
+
+- story: registro de estudiante
+  steps:
+  - intent: deseo_inscribirse
+  - action: utter_saludo
+  - active_loop: registro_estudiante_form
+  - action: utter_ask_nombre_usuario
+  - intent: proporcionar_nombre
+  - action: registro_estudiante_form
+  - action: utter_ask_email_usuario
+  - intent: proporcionar_email
+  - action: registro_estudiante_form
+  - action: utter_ask_telefono_usuario
+  - intent: proporcionar_telefono
+  - action: registro_estudiante_form
+  - action: utter_ask_codigo_estudiante
+  - intent: proporcionar_codigo_estudiante
+  - action: registro_estudiante_form
+  - active_loop: null
+  - action: action_registrar_estudiante
+  - action: utter_confirm_datos
+
+- story: consultar ubicación
+  steps:
+  - intent: consultar_ubicacion
+  - action: utter_consultar_ubicacion
+
+- story: consultar contacto
+  steps:
+  - intent: consultar_contacto
+  - action: utter_contacto_soporte
+
+- story: consultar tramites
+  steps:
+  - intent: consultar_tramites
+  - action: utter_consultar_tramites
+
+- story: solicitar constancia
+  steps:
+  - intent: solicitar_constancia_estudiante
+  - action: utter_solicitar_constancia_estudiante
+
+- story: consultar becas y aprobación
+  steps:
+  - intent: consultar_becas
+  - action: utter_consultar_becas
+  - intent: afirmar
+  - action: utter_agradecer
+
+- story: despedida simple
+  steps:
+  - intent: despedida
+  - action: utter_despedida
+
+- story: consultar créditos
+  steps:
+  - intent: consultar_creditos
+  - action: utter_consultar_creditos
+
+- story: error general
+  steps:
+  - intent: error_general
+  - action: utter_error
